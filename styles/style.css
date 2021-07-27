@@ -28,8 +28,8 @@ html[data-theme="dark"] {
 
 body {
   font-family: "Rubik", sans-serif;
-  height: 100vh;
   background: var(--bg);
+  height: 100%;
 }
 
 a,
@@ -98,7 +98,7 @@ header .toggle-mode p {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 73.9px;
   height: 34px;
 }
 
@@ -146,17 +146,17 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(40px);
+  transform: translateX(40px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 30px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 30px;
 }
 
 /*------------------------------------*\
@@ -185,7 +185,7 @@ main {
   padding: 20px;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,10 +291,6 @@ main {
           justify-content: flex-end;
 }
 
-section.overview {
-  margin-bottom: 50px;
-}
-
 /*------------------------------------*\
   #UTILITIES STYLING
 \*------------------------------------*/
@@ -326,6 +322,16 @@ section.overview {
           justify-content: space-between;
 }
 
+.attribution {
+  color: var(--mute-color);
+  margin: 50px 5vw 20px 5vw;
+}
+
+.attribution a {
+  color: var(--mute-color);
+  text-decoration: underline;
+}
+
 /*------------------------------------*\
   #HTML dark/light mode transition 
 \*------------------------------------*/
@@ -337,5 +343,44 @@ html.transition *:after {
   transition: all 300ms !important;
   -webkit-transition-delay: 0 !important;
           transition-delay: 0 !important;
+}
+
+/*------------------------------------*\
+  #MEDIA QUERIES STYLING
+\*------------------------------------*/
+@media only screen and (max-width: 600px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 30px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+  }
+  header .toggle-mode {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 5px;
+  }
+  header .toggle-mode p {
+    font-size: 0.9rem;
+    color: var(--mute-color);
+  }
+  header .switch {
+    width: 73.9px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
