@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  --bg: #f8f9fe;
+  --headline-color: #1d2533;
+  --normal-text-color: #1d2533;
+  --mute-color: #77839b;
+  --deck-color: rgba(255, 255, 255, 0.3);
+  --hover-deck-color: rgb(239, 247, 255);
+  --box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.2);
+}
+
+html[data-theme="dark"] {
+  --bg: #1d2533;
+  --headline-color: white;
+  --normal-text-color: white;
+  --mute-color: #77839b;
+  --deck-color: rgba(255, 255, 255, 0.05);
+  --hover-deck-color: rgba(241, 241, 241, 0.1);
+  --box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  height: 100vh;
+  background: var(--bg);
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--normal-text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*------------------------------------*\
+  #HEADER STYLING
+\*------------------------------------*/
+header {
+  margin: 50px 5vw 20px 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+header h1 {
+  font-size: 1.85rem;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+header .toggle-mode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+}
+
+header .toggle-mode p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+/*------------------------------------*\
+  #TOGGLE BUTTON STYLING
+\*------------------------------------*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ccc;
+  -webkit-transition: 0.4s;
+  -webkit-transition: 0.4;
+  transition: 0.4;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background: #3c99d9;
+  background: linear-gradient(97deg, #3c99d9 0%, #2ee992 100%);
+}
+
+input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196f3;
+          box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*------------------------------------*\
+  #MAIN CARDS STYLING
+\*------------------------------------*/
+main {
+  margin-bottom: 50px;
+}
+
+.group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 50px 5vw 20px 5vw;
+}
+
+.card {
+  background: var(--deck-color);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card:hover {
+  background: var(--hover-deck-color);
+}
+
+.card .line-color {
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.card .line-color.fb {
+  background-color: #4267b2;
+}
+
+.card .line-color.twitter {
+  background: #1da1f2;
+}
+
+.card .line-color.ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.card .line-color.youtube {
+  background: #ff0000;
+}
+
+.card .username {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card .username p {
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+
+.card h1 {
+  font-size: 4rem;
+}
+
+.card .growth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.card .growth img {
+  width: 10px;
+  height: 5px;
+  margin-right: 5px;
+}
+
+/*------------------------------------*\
+  #OVERVIEW SECTION STYLING
+\*------------------------------------*/
+.title-divider {
+  margin: 50px 5vw 20px 5vw;
+}
+
+.overview {
+  margin-top: 10px;
+}
+
+.stats {
+  margin-top: 20px;
+}
+
+.stats h2 {
+  font-size: 3rem;
+}
+
+.stats .growth {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+section.overview {
+  margin-bottom: 50px;
+}
+
+/*------------------------------------*\
+  #UTILITIES STYLING
+\*------------------------------------*/
+.followers-text {
+  letter-spacing: 5px;
+  font-size: 0.8rem;
+  margin-top: -5px;
+  color: var(--mute-color);
+}
+
+.increase {
+  font-weight: 500;
+  color: #50ae96;
+  letter-spacing: 0;
+}
+
+.decrease {
+  font-weight: 500;
+  color: #dc414c;
+  letter-spacing: 0;
+}
+
+.flex-space-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/*------------------------------------*\
+  #HTML dark/light mode transition 
+\*------------------------------------*/
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  -webkit-transition: all 300ms !important;
+  transition: all 300ms !important;
+  -webkit-transition-delay: 0 !important;
+          transition-delay: 0 !important;
+}
+/*# sourceMappingURL=style.css.map */
